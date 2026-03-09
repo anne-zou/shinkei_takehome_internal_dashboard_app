@@ -1,0 +1,61 @@
+.root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  flex: 1;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Single highlighted stat card */
+.statRow {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 240px));
+}
+
+/* Three breakdown cards side by side */
+.breakdownRow {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* Two charts side by side */
+.chartRow {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+  color: var(--color-text-muted);
+  font-size: 14px;
+}
+
+.error {
+  padding: 16px 20px;
+  background: rgba(248, 113, 113, 0.1);
+  border: 1px solid var(--color-danger);
+  border-radius: var(--radius);
+  color: var(--color-danger);
+  font-size: 13px;
+}
+
+@media (max-width: 900px) {
+  .breakdownRow,
+  .chartRow {
+    grid-template-columns: 1fr;
+  }
+}
