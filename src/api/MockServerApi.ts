@@ -132,7 +132,7 @@ export async function getDashboardSummary(
   return {
     data: {
       num_harvested:    toTimeSeries(filtered.filter((r) => r.stage === 'HARVESTED'), (r) => r.harvest_date),
-      num_expired:      toTimeSeries(expired, (r) => r.harvest_date),
+      num_expired:      toTimeSeries(expired, (r) => r.shelf_life),
       avg_quality:      avgQuality,
       avg_price:        avgPrice,
       total_count:      filtered.length,
