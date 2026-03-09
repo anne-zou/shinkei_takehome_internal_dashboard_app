@@ -2,6 +2,9 @@
 
 An internal stakeholder-facing dashboard for monitoring fish inventory metrics. Built as a frontend-only React/TypeScript app with a mock API layer backed by local CSV data.
 
+## Demo Video
+[https://drive.google.com/file/d/1t1eEKbxa4JNGOLDYQLaRnHaZ2GU-ICe7/view?usp=sharing](https://drive.google.com/file/d/1t1eEKbxa4JNGOLDYQLaRnHaZ2GU-ICe7/view?usp=sharing)
+
 ## Getting started
 
 ```bash
