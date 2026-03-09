@@ -108,11 +108,11 @@ export async function getDashboardSummary(
     return d >= start && d <= end
   })
 
-  // A fish is "expired" when its optimal_consumption_date has passed the endDate
+  // A fish is "expired" when its shelf_life date has passed the endDate
   const expired = filtered.filter((r) => {
-    if (!r.optimal_consumption_date) return false
-    const ocd = parseDate(r.optimal_consumption_date)
-    return ocd !== null && ocd < end
+    if (!r.shelf_life) return false
+    const sl = parseDate(r.shelf_life)
+    return sl !== null && sl <= end
   })
 
   // Scatter: one point per fish (price and quality)
