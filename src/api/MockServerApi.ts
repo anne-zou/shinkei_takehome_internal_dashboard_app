@@ -118,14 +118,14 @@ export async function getDashboardSummary(
   // Scatter: one point per fish (price and quality)
   const avgPrice: ScatterPoint[] = filtered.map((r) => {
     const d = parseDate(r.harvest_date)!
-    return { timestamp: toISO(d), value: r.price, species: r.species_name }
+    return { timestamp: toISO(d), value: r.price }
   }).sort((a, b) => a.timestamp.localeCompare(b.timestamp))
 
   const avgQuality: ScatterPoint[] = filtered
     .filter((r) => r.quality_score !== null)
     .map((r) => {
       const d = parseDate(r.harvest_date)!
-      return { timestamp: toISO(d), value: r.quality_score as number, species: r.species_name }
+      return { timestamp: toISO(d), value: r.quality_score as number }
     })
     .sort((a, b) => a.timestamp.localeCompare(b.timestamp))
 

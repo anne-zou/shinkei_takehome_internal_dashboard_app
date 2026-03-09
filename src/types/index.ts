@@ -23,7 +23,6 @@ export interface TimeSeriesPoint {
 export interface ScatterPoint {
   timestamp: string   // ISO 8601 harvest date
   value: number
-  species: string
 }
 
 export interface BreakdownEntry {
