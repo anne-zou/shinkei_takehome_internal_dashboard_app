@@ -7,9 +7,9 @@ import FishScatterPlot from '@/components/charts/FishScatterPlot'
 import { useDashboardData } from '@/hooks/useDashboardData'
 import styles from './Dashboard.module.css'
 
-// Default range: last 7 days from the most recent data (2026-03-01 to 2026-03-07)
+// Default range: covers all harvest dates (3/1–3/7) and all shelf_life expiration dates (through 4/6)
 const DEFAULT_START = '2026-03-01'
-const DEFAULT_END   = '2026-03-09'
+const DEFAULT_END   = '2026-04-06'
 
 export default function Dashboard() {
   const [startDate, setStartDate] = useState(DEFAULT_START)
