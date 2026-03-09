@@ -37,6 +37,8 @@ export default function FishScatterPlot({
   const plotData = data.map((d) => ({
     x: toEpoch(d.timestamp),
     y: d.value,
+    species: d.species,
+    region: d.region,
   }))
 
   return (
@@ -84,13 +86,13 @@ export default function FishScatterPlot({
               cursor={{ strokeDasharray: '3 3', stroke: 'var(--color-border)' }}
               content={({ payload }) => {
                 if (!payload?.length) return null
-                const { x, y } = payload[0].payload as { x: number; y: number }
+                const { x, y, species, region } = payload[0].payload as { x: number; y: number; species: string; region: string }
                 return (
-                  <div style={{ padding: '8px 12px' }}>
-                    <div style={{ color: 'var(--color-text-muted)', marginBottom: 4, fontSize: 11 }}>
-                      {formatDate(new Date(x).toISOString())}
-                    </div>
-                    <div style={{ color: DOT_COLOR }}>{yLabel}: {yFormatter(y)}</div>
+                  <div style={{ padding: '8px 12px', display: 'flex', flexDirection: 'column', gap: 4 }}>
+                    <div style={{ color: 'var(--color-text-muted)', fontSize: 11 }}>{formatDate(new Date(x).toISOString())}</div>
+                    <div style={{ fontWeight: 600 }}>{species}</div>
+                    <div style={{ color: 'var(--color-text-muted)', fontSize: 12 }}>{region}</div>
+                    <div style={{ color: DOT_COLOR, marginTop: 2 }}>{yLabel}: {yFormatter(y)}</div>
                   </div>
                 )
               }}
